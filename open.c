@@ -32,7 +32,7 @@
 
 
 int
-wmain(int argc, TCHAR** argv)
+wmain(int argc, WCHAR** argv)
 {
     SHELLEXECUTEINFO sei;
     int i;
@@ -49,8 +49,8 @@ wmain(int argc, TCHAR** argv)
         /* Translate '/' potentially propagated from some unix shells to '\\' */
         n = wcslen(argv[i]);
         for(j = 0; j < n; j++) {
-            if(argv[i][j] == _T('/'))
-                argv[i][j] = _T('\\');
+            if(argv[i][j] == L'/')
+                argv[i][j] = L'\\';
         }
 
         sei.lpFile = argv[i];
